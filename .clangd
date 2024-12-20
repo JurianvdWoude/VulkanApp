@@ -1,0 +1,2 @@
+CompileFlags:
+  Add: ['-std=c++17', '-I./lib', '-I./lib/FMODEngine2023/api/core/inc/', '-L./lib/FMODEngine2023/api/core/lib/x86_64/']
