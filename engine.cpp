@@ -133,7 +133,7 @@ class VulkanEngine {
 public:
   void run() {
     initWindow();
-    initFMOD();
+    // initFMOD();
     initVulkan();
     mainLoop();
     cleanup();
@@ -142,7 +142,7 @@ public:
 private:
   GameState gamestate = GameState::run;
 
-  AudioManager *audio;
+  // AudioManager *audio;
 
   GLFWwindow *window;
   bool framebufferResized     = false;
@@ -200,12 +200,12 @@ private:
   VkImageView colorImageView;
 
   // TODO: check what to do with this initialization function
-  void initFMOD() {
-    audio = new AudioManager();
-    audio->loadSFX(SOUND_PATH.c_str());
-    audio->loadSong(MUSIC_PATH_1.c_str());
-    audio->loadSong(MUSIC_PATH_2.c_str());
-  }
+  //void initFMOD() {
+  //  audio = new AudioManager();
+  //  audio->loadSFX(SOUND_PATH.c_str());
+  //  audio->loadSong(MUSIC_PATH_1.c_str());
+  //  audio->loadSong(MUSIC_PATH_2.c_str());
+  //}
 
   void initWindow() {
     if (!glfwInit()) {
@@ -246,7 +246,7 @@ private:
     case GLFW_PRESS:
       std::cout << "pressed: " << keyName << std::endl;
 
-      audio->playSong(MUSIC_PATH_2.c_str());
+      // audio->playSong(MUSIC_PATH_2.c_str());
       break;
     case GLFW_RELEASE:
       std::cout << "released: " << keyName << std::endl;
@@ -299,15 +299,15 @@ private:
   }
 
   void mainLoop() {
-    audio->playSFX(SOUND_PATH.c_str(), 0.2f, 1.0f, 0.2f, 1.0f);
-    audio->playSong(MUSIC_PATH_1.c_str());
+    // audio->playSFX(SOUND_PATH.c_str(), 0.2f, 1.0f, 0.2f, 1.0f);
+    // audio->playSong(MUSIC_PATH_1.c_str());
     initDeltaTime();
 
     while (!glfwWindowShouldClose(window)) {
       glfwPollEvents();
       drawFrame();
       updateDeltaTime();
-      audio->update(deltaTime);
+      // audio->update(deltaTime);
     }
 
     vkDeviceWaitIdle(device);
@@ -1585,7 +1585,7 @@ private:
   }
 
   void cleanup() {
-    cleanupAudio();
+    // cleanupAudio();
 
     // cleanupImGui();
 
@@ -1638,13 +1638,13 @@ private:
     glfwTerminate();
   }
 
-  void cleanupAudio() {
-    while (!(audio->FMODResultsList.empty())) {
-      std::string FMODErrorResult = audio->FMODResultsList.back();
-      audio->FMODResultsList.pop_back();
-      std::cout << FMODErrorResult << std::endl;
-    }
-  }
+  //void cleanupAudio() {
+  //  while (!(audio->FMODResultsList.empty())) {
+  //    std::string FMODErrorResult = audio->FMODResultsList.back();
+  //    audio->FMODResultsList.pop_back();
+  //    std::cout << FMODErrorResult << std::endl;
+  //  }
+  //}
 
   void createInstance() {
     if (enableValidationLayers && !checkValidationLayerSupport()) {
