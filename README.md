@@ -1,7 +1,7 @@
 
 # 3D Vulkan App
 
-This creates a window with a moving, rendered 3D scene. A small 3D rendering project built in C++ with the Vulkan API.
+A small 3D rendering project built in C++ with Vulkan, rendering a textured 3D scene while exploring low-level graphics concepts.
 
 This project was created while working through [Vulkan Tutorial](https://vulkan-tutorial.com/) to learn how a modern low-level graphics API works. Most of the Vulkan implementation closely follows the tutorial, with some additional experimentation around input, timing, audio, and application structure.
 
@@ -11,21 +11,30 @@ This project was created while working through [Vulkan Tutorial](https://vulkan-
 
 The project requires a Vulkan-capable GPU and the required development libraries.
 
-Build instructions may vary depending on the platform and installed Vulkan environment.
+Build instructions may vary depending on the platform and installed Vulkan environment, however the repository contains a Makefile.
 
 Setting up the development environment is based on [The Vulkan Tutorial](https://vulkan-tutorial.com/Development_environment) website.
 
-Main dependencies include:
+### Dependencies
+
 - Vulkan SDK / Vulkan development packages
-- GLFW
+- GLFW 3.3+
 - GLM
 - stb_image
 - tinyobjloader
+- Make
+- A C++ compiler
 
-1. The Vulkan SDK is needed to run this program, which can be downloaded from [the LunarG website](https://vulkan.lunarg.com/). Once installed, you can go to the *bin/* directory and run *vkcube.exe* to test that the SDK works.
-2. GLFW can be installed by clicking the download link for [their website](https://www.glfw.org/). Make sure to at least use version 3.3.
-3. GLM can be installed by following the [GLM github page](https://github.com/g-truc/glm) and following the instructions at "Build and Install".
-4. Finally, run make to build the bin that runs the program.
+The project also contains audio code using FMOD.
+
+### Verify Vulkan
+
+Before building, make sure Vulkan is working correctly on your system.
+
+You can test this with:
+
+```bash
+vulkaninfo
 
 ## Usage
 
