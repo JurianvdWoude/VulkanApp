@@ -35,6 +35,7 @@ You can test this with:
 
 ```bash
 vulkaninfo
+```
 
 ## Usage
 
